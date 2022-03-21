@@ -27,3 +27,8 @@
 - Attribute binding, to get dynamic value from a data component to used in element attribute, we can use v-bind:ATTRIBUTE or just :ATTRIBUTE, for example using in :src, :alt, :value, :class, :title, etc...
 - Notes: @ for v-on, and : for v-bind
 - Computed properties are for listening to change on the data
+
+## 2. Vue CLI (3/22/2022)
+
+- To create vue app with CLI: `vue create [project_name]`
+- `cd project_directory` and run it with `npm run serve`
