@@ -10,8 +10,11 @@
 - Mount method to preview, app.mount('#app')
 - Template is for showing the html code or the UI
 - Show the data with {{ data }}
-
 - Add methods and click events
   - for click method, we can use <button v-on:click=""...
   - you can replace v-on: with @, @click
   - to create method, use methods: {functionName(){}, .... }
+- Conditional rendering (v-if)
+  - if (v-if), example: `<div v-if="condition">...</div>`
+  - else (v-else), example: `<div v-else>...</div>`
+  - show (only meet the require condition), example: `<div v-show="condition">...</div>`

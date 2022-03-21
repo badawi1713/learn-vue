@@ -6,7 +6,8 @@ const app = Vue.createApp({
         return {
             title: 'Life is Subarashii',
             author: 'Dzaky Badawi',
-            age: 25
+            age: 25,
+            showBooks: true
         }
     },
     // create methods
@@ -14,6 +15,9 @@ const app = Vue.createApp({
         changeTitle(title){
             // access data from the component we can use, this
             this.title = title
+        },
+        toggleShowBooks() {
+            this.showBooks = !this.showBooks
         }
     }
 })
