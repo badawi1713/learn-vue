@@ -25,4 +25,5 @@
   - dblclick
 - For in vue, we can use v-for in list `<li v-for="item in list">{item.name}</li>`
 - Attribute binding, to get dynamic value from a data component to used in element attribute, we can use v-bind:ATTRIBUTE or just :ATTRIBUTE, for example using in :src, :alt, :value, :class, :title, etc...
-- notes: @ for v-on, and : for v-bind
+- Notes: @ for v-on, and : for v-bind
+- Computed properties are for listening to change on the data

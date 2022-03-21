@@ -11,22 +11,29 @@ const app = Vue.createApp({
       showMovies: true,
       x: 0,
       y: 0,
+      moviesTitle: "",
       url: "https://dbadawi.id",
       movies: [
         {
+          id: 1,
           title: "Doraemon",
           duration: "90 minutes",
           url: "images/doraemon.jpg",
+          isFavorite: false,
         },
         {
+          id: 2,
           title: "Pokemon",
           duration: "110 minutes",
           url: "images/pokemon.jpg",
+          isFavorite: true,
         },
         {
+          id: 3,
           title: "Jujutsu Kaisen",
           duration: "90 minutes",
           url: "images/jjk.jpg",
+          isFavorite: false,
         },
       ],
     };
@@ -50,6 +57,29 @@ const app = Vue.createApp({
     handleMouseMove(event) {
       this.x = event.offsetX;
       this.y = event.offsetY;
+    },
+    searchMovie(title) {
+      this.moviesTitle = title;
+      console.log(title);
+    },
+    addToFavorite(movie) {
+      //   this.movies[index].isFavorite = !this.movies[index].isFavorite
+      //   const updateFavorite = this.movies.map((item) => {
+      //     if (item.id === id) {
+      //       return { ...item, isFavorite: !item.isFavorite };
+      //     }
+      //     return item;
+      //   });
+      //   this.movies = updateFavorite;
+      movie.isFavorite = !movie.isFavorite;
+    },
+  },
+  //   Computed properties
+  computed: {
+      filteredMovies() {
+      return (this.movies = this.movies.filter(
+        (item) => item.isFavorite
+      ));
     },
   },
 });
