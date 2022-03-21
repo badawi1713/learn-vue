@@ -23,3 +23,4 @@
   - mouseenter
   - mousemove
   - dblclick
+- For in vue, we canse use v-for in list `<li v-for="item in list">{item.name}</li>`
