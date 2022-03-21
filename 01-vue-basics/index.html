@@ -22,6 +22,8 @@
 
 <body>
     <div id="app">
+        <!-- Attribute Binding fro create dynamic value in element -->
+        <a v-bind:href="url">My Portfolio URL</a>
         <div v-if="showBooks">
             <p>{{title}} - {{author}}, {{age}}</p>
         </div>
@@ -45,7 +47,10 @@
         <div v-show="showMovies">
             <ul >
                 <li v-for="movie in movies">
-                    {{movie.title}} - {{movie.duration}}
+                    <img :src="movie.url" :alr="movie.title" width="300" height="200" />
+                    <h3>
+                        {{movie.title}} - {{movie.duration}}
+                    </h3>
                 </li>
             </ul>
         </div>

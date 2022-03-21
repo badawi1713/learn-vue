@@ -11,18 +11,22 @@ const app = Vue.createApp({
       showMovies: true,
       x: 0,
       y: 0,
+      url: "https://dbadawi.id",
       movies: [
         {
           title: "Doraemon",
           duration: "90 minutes",
+          url: "images/doraemon.jpg",
         },
         {
           title: "Pokemon",
           duration: "110 minutes",
+          url: "images/pokemon.jpg",
         },
         {
           title: "Jujutsu Kaisen",
           duration: "90 minutes",
+          url: "images/jjk.jpg",
         },
       ],
     };
