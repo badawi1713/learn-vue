@@ -7,7 +7,9 @@ const app = Vue.createApp({
             title: 'Life is Subarashii',
             author: 'Dzaky Badawi',
             age: 25,
-            showBooks: true
+            showBooks: true,
+            x: 0,
+            y: 0,
         }
     },
     // create methods
@@ -18,6 +20,15 @@ const app = Vue.createApp({
         },
         toggleShowBooks() {
             this.showBooks = !this.showBooks
+        },
+        handleEvent(event, number) {
+            console.log(event.type)
+            console.log('event', number)
+        },
+        handleMouseMove(event) {
+            this.x = event.offsetX;
+            this.y = event.offsetY;
+
         }
     }
 })

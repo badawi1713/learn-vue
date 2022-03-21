@@ -18,3 +18,8 @@
   - if (v-if), example: `<div v-if="condition">...</div>`
   - else (v-else), example: `<div v-else>...</div>`
   - show (only meet the require condition), example: `<div v-show="condition">...</div>`
+- Mouse event
+  - mouseleave
+  - mouseenter
+  - mousemove
+  - dblclick

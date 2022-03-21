@@ -7,6 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/vue@3.0.2"></script>
     <title>Basic Vue</title>
+    <style>
+        .box {
+            padding: 100px 0;
+            width: 400px;
+            text-align: center;
+            background-color: #ddd;
+            margin: 20px;
+            display: inline-block;
+        }
+
+    </style>
 </head>
 
 <body>
@@ -24,8 +35,13 @@
             <span v-if="showBooks">Hide Books</span>
             <span v-else>Show Books</span>
         </button>
-        <br/>
+        <br />
         <p v-show="showBooks">Currently showing the books</p>
+
+        <div class="box" @mouseover="handleEvent($event, 4)">mouseover (enter)</div>
+        <div class="box" @mouseleave="handleEvent">mouseleave</div>
+        <div class="box" @dblclick="handleEvent">double click</div>
+        <div class="box" @mousemove="handleMouseMove">mousemove (position) - {{x}},{{y}}</div>
 
     </div>
     <script src="./app.js"></script>
