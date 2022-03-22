@@ -1,6 +1,8 @@
 <template>
-  <Modal />
-  <h1>Hello World</h1>
+  <div>
+    <Modal :title="title" content="Are you sure?" :theme="theme" />
+    <h1>Hello World</h1>
+  </div>
 </template>
 
 <script>
@@ -13,7 +15,8 @@ export default {
   },
   data() {
     return {
-      title: "My First Vue App! Hello World :)",
+      title: "Payment Confirmation!",
+      theme: "sale"
     };
   },
   methods: {
