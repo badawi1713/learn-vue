@@ -32,4 +32,5 @@
 
 - To create vue app with CLI: `vue create [project_name]`
 - `cd project_directory` and run it with `npm run serve`
-- use `<template>` to create component and export it like this `export default { name: 'HelloWorld',  props: {msg: String}}`
+- use `<template>` to create component and export it like this `export default { name: 'HelloWorld', props: {msg: String}}` to import in script tag, `import Component from './components/..'` and inside the export default write, `export default { ..., components: {Component} }`
+- Template refs allow to store a reference to adompt elements inside a variable, example: `<input type='text' ref='name/>` to access the ref, we can use `this.$refs.(ref_name)`
