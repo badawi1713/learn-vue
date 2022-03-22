@@ -1,8 +1,10 @@
 <template>
   <div class="backdrop" @click.self="closeModalHandler">
-    <div :class="{sale: theme === 'sale'}" class="modal">
-      <h1>{{title}}</h1>
-      <p>{{content}}</p>
+    <div :class="{ sale: theme === 'sale' }" class="modal">
+      <slot name="content"></slot>
+      <div class="actions">
+        <slot name="actions"></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -11,14 +13,12 @@
 export default {
   name: "Modal",
   props: {
-      title: String,
-      content: String,
-      theme: String
+    theme: String,
   },
   methods: {
-      closeModalHandler(){
-          this.$emit('close')
-      }
+    closeModalHandler() {
+      this.$emit("close");
+    },
   },
 };
 </script>
@@ -52,10 +52,22 @@ export default {
 }
 
 .modal.sale {
-    background: #839d9e;
+  background: #839d9e;
 }
 
-.modal.sale h1,p {
-    color: #fff;
+.modal.sale >>> h1 {
+  color: #fff;
+}
+
+.modal.sale >>> p {
+  color: #fff;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+  margin-top: 40px;
 }
 </style>

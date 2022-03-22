@@ -1,7 +1,16 @@
 <template>
   <div>
     <div v-show="showModal">
-      <Modal :title="title" content="Are you sure?" :theme="theme" @close="showModalHandler" />
+      <Modal :theme="theme" @close="showModalHandler">
+        <template v-slot:content>
+          <h1>{{ title }}</h1>
+          <p>{{ content }}</p>
+        </template>
+        <template v-slot:actions>
+          <button @click="showModalHandler">Cancel</button>
+          <button @click="showModalHandler">Confirm</button>
+        </template>
+      </Modal>
     </div>
     <h1>Hello World! :)</h1>
     <button @click="showModalHandler">Show Modal</button>
@@ -21,6 +30,7 @@ export default {
       title: "Payment Confirmation!",
       theme: "sale",
       showModal: false,
+      content: "This is modal's content",
     };
   },
   methods: {
