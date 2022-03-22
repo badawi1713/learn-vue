@@ -1,6 +1,7 @@
 <template>
   <div class="backdrop">
     <div class="modal">
+      <h1>Modal Title</h1>
       <p>Modal Content</p>
     </div>
   </div>
@@ -32,5 +33,11 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+.modal h1 {
+  color: #feb522;
+  text-align: center;
+  margin-bottom: 60px;
 }
 </style>
