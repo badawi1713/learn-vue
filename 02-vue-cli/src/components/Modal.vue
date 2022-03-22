@@ -1,5 +1,5 @@
 <template>
-  <div class="backdrop">
+  <div class="backdrop" @click="closeModalHandler">
     <div :class="{sale: theme === 'sale'}" class="modal">
       <h1>{{title}}</h1>
       <p>{{content}}</p>
@@ -14,7 +14,12 @@ export default {
       title: String,
       content: String,
       theme: String
-  }
+  },
+  methods: {
+      closeModalHandler(){
+          this.$emit('close')
+      }
+  },
 };
 </script>
 

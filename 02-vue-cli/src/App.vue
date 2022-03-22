@@ -1,7 +1,10 @@
 <template>
   <div>
-    <Modal :title="title" content="Are you sure?" :theme="theme" />
-    <h1>Hello World</h1>
+    <div v-show="showModal">
+      <Modal :title="title" content="Are you sure?" :theme="theme" @close="showModalHandler" />
+    </div>
+    <h1>Hello World! :)</h1>
+    <button @click="showModalHandler">Show Modal</button>
   </div>
 </template>
 
@@ -16,10 +19,14 @@ export default {
   data() {
     return {
       title: "Payment Confirmation!",
-      theme: "sale"
+      theme: "sale",
+      showModal: false,
     };
   },
   methods: {
+    showModalHandler() {
+      this.showModal = !this.showModal;
+    },
     clickHandler() {
       // console.log(this.$refs.name.value)
       // alert(this.$refs.name.value)

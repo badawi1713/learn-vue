@@ -36,3 +36,4 @@
 - Template refs allow to store a reference to adompt elements inside a variable, example: `<input type='text' ref='name/>` to access the ref, we can use `this.$refs.(ref_name)`
 - To styling component we can use scoped attribute in style tag for local styling `<style scoped>`, and not used it if you want to create global styles
 - To create props for components we can use `props: {msg: String}` in export default { ... } or `props: ['props','props2',...]` and for components that accepts the props, we can passing it with `<Component props="value" />` or if the props is accepting dynamic value we can bind it with `<Component :props="dynamic_value" />`
+- Emit custom event to listen parent event, in child component create method with `this.$emit('event_name')` and on parent component add emit props like `<Component @event_name="handler" />`
