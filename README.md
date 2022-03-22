@@ -32,3 +32,4 @@
 
 - To create vue app with CLI: `vue create [project_name]`
 - `cd project_directory` and run it with `npm run serve`
+- use `<template>` to create component and export it like this `export default { name: 'HelloWorld',  props: {msg: String}}`
