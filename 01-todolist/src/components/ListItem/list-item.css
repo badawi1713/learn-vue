@@ -1,0 +1,43 @@
+.list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--white);
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.list .list__content {
+    font-size: var(--text-lg);
+    color: var(--black);
+    font-weight: 600;
+}
+
+.list .list__content.checked {
+    text-decoration: line-through;
+    color: var(--primary-color);
+}
+
+.list .list__actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.list .list__actions .list__actions__button {
+    padding: 4px;
+    outline: none;
+    cursor: pointer;
+    border: 0;
+    border-radius: 50%;
+    text-align: center;
+    font-size: var(--text-lg);
+}
+
+.list__actions__button.checked {
+    background-color: var(--secondary-color);
+}
+
+.list__actions__button.delete {
+    background-color: var(--accent-color);
+}

@@ -1,0 +1,128 @@
+.box {
+    border-radius: 8px;
+    max-height: 50rem;
+    width: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.box .box__header {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    justify-content: space-between;
+    background-color: var(--white);
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.box .box__header .box__header__title {
+    font-size: var(--text-3xl);
+    color: var(--black);
+}
+
+.box .box__header .box__header__tags {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.box .box__content {
+    height: 100%;
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 8px;
+    overflow-y: auto;
+}
+
+.box ::-webkit-scrollbar {
+    width: 4px;
+}
+
+/* Track */
+.box ::-webkit-scrollbar-track {
+    background: var(--white);
+}
+
+/* Handle */
+.box ::-webkit-scrollbar-thumb {
+    background: var(--grey);
+}
+
+/* Handle on hover */
+.box ::-webkit-scrollbar-thumb:hover {
+    background: var(--grey);
+}
+
+.box .box__content .box__content__empty {
+    font-size: var(--text-xl);
+    text-align: center;
+    color: var(--black);
+    margin: 20px 0;
+}
+
+.box .box__input {
+    box-shadow: 0px 0px 6px -2px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    justify-content: space-between;
+    background-color: var(--white);
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.box .box__input .box__input__form {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 4rem;
+    border: 2px solid var(--primary-color);
+    padding: 8px 12px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.box .box__input .box__input__form input,
+input:active {
+    width: 80%;
+    border: none;
+    outline: none;
+    font-size: var(--text-lg);
+    color: var(--black);
+    font-weight: 600;
+    font-family: inherit;
+}
+
+.box .box__input .box__input__form span {
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--black);
+}
+
+.box .box__input .box__input__form button[type="submit"] {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    padding: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+    border: 0;
+    font-size: var(--text-2xl);
+    font-weight: 600;
+    color: var(--white);
+    cursor: pointer;
+}
+
+@media screen and (max-width: 480px) {
+    .box .box__header {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
