@@ -12,8 +12,24 @@
         </template>
       </Modal>
     </div>
+    <div v-show="showConfirmationModal">
+      <Modal :theme="theme" @close="showConformationModalHandler">
+        <template v-slot:content>
+          <h1>{{ title }}</h1>
+          <p>{{ content }}</p>
+        </template>
+        <template v-slot:actions>
+          <button @click="showConformationModalHandler">Cancel</button>
+          <button @click="showConformationModalHandler">Confirm</button>
+        </template>
+      </Modal>
+    </div>
     <h1>Hello World! :)</h1>
     <button @click="showModalHandler">Show Modal</button>
+    <br />
+    <button @click="showConformationModalHandler">
+      Show Confirmation Modal
+    </button>
   </div>
 </template>
 
@@ -30,12 +46,16 @@ export default {
       title: "Payment Confirmation!",
       theme: "sale",
       showModal: false,
+      showConfirmationModal: false,
       content: "This is modal's content",
     };
   },
   methods: {
     showModalHandler() {
       this.showModal = !this.showModal;
+    },
+    showConformationModalHandler() {
+      this.showConfirmationModal = !this.showConfirmationModal;
     },
     clickHandler() {
       // console.log(this.$refs.name.value)
