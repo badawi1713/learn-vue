@@ -39,3 +39,7 @@
 - Emit custom event to listen parent event, in child component create method with `this.$emit('event_name')` and on parent component add emit props like `<Component @event_name="handler" />`
 - Click event modifier, to restricted event `@click.[modifier]`
 - Slot is useful for passing custom templates into components, create slot in child component, `<slot></slot>` and on it's parent `<Component><h1>{{content}}</h1></Component>` it will pass the component content or children, you can use custom slot with `<template>`, on it's parent component use `<Component><template v-slot:slot_name><div>...</div></template></Component>` on the component itself, add name attribute to the slot `<slot name="slot_name"></slot>`
+
+## 3. Add To-Do-List Project as Exercise (3/23/2022)
+
+- Create simple components and logi for to-do-list app
