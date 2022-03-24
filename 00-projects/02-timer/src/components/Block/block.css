@@ -1,0 +1,18 @@
+.block {
+    width: 200px;
+    height: 160px;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    padding: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-size: larger;
+    color: var(--white);
+    transition: filter .6s;
+}
+
+.block:hover {
+    filter: brightness(85%);
+}

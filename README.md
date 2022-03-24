@@ -42,4 +42,22 @@
 
 ## 3. Add To-Do-List Project as Exercise (3/23/2022)
 
-- Create simple components and logi for to-do-list app
+- Create simple components and logic for to-do-list app
+- Learn to CRUD with vanilla JavaScript (Add new task data, checked the task to update the task, delete task, and view list of data)
+
+## 4. Add Timer Reaction Project as Exercise (3/24/2022)
+
+- Create simple components and logic for timer reaction app
+- Learn how to use interval, life cycle hooks, and click event
+- life cycle:
+  - beforeCreate: this fires before component even is fully created
+  - created: the component is created, but not yet mounted in DOM
+  - beforeMount
+  - mounted: We can access the data, template (popular to use fetch)
+  - beforeUpdated: when the data updated and changes (like click button), it happens after the data change but before re-rendered to the DOM
+  - updated: show the change after any changes/update happens in component
+  - beforeUnmount: before remove from DOM
+  - unmounted: component cleanup
+  - link to life-cycle-hooks: <https://vuejs.org/guide/essentials/application.html#lifecycle-hooks>
+  - emitting event with value `this.$emit('event_name', value)`
+  
