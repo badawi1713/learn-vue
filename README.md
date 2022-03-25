@@ -60,4 +60,11 @@
   - unmounted: component cleanup
   - link to life-cycle-hooks: <https://vuejs.org/guide/essentials/application.html#lifecycle-hooks>
   - emitting event with value `this.$emit('event_name', value)`
-  
+
+## 5. Form (2-way data binding
+
+- two data binding, to modify the data (state) and we can change the data, with bind it with v-model:
+  - `<input v-model="data_that_what_you_want_to_change" />`
+  - `<select v-model="role">`
+- listening to keyboard press `@keyup`
+- to prevent form submit from reloading, we can use handler @submit.prevent in form tag, `<form @submit.prevent="handler">...</form>`
