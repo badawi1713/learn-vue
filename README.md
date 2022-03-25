@@ -61,7 +61,7 @@
   - link to life-cycle-hooks: <https://vuejs.org/guide/essentials/application.html#lifecycle-hooks>
   - emitting event with value `this.$emit('event_name', value)`
 
-## 5. Form (2-way data binding
+## 5. Form and 2-way Data Binding (3/25/2022)
 
 - two data binding, to modify the data (state) and we can change the data, with bind it with v-model:
   - `<input v-model="data_that_what_you_want_to_change" />`
