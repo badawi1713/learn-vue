@@ -32,7 +32,7 @@
 
 - To create vue app with CLI: `vue create [project_name]`
 - `cd project_directory` and run it with `npm run serve`
-- use `<template>` to create component and export it like this `export default { name: 'HelloWorld', props: {msg: String}}` 
+- use `<template>` to create component and export it like this `export default { name: 'HelloWorld', props: {msg: String}}`
 - to import in script tag, `import Component from './components/..'` and inside the export default write, `export default { ..., components: {Component} }`
 - Template refs allow to store a reference to adompt elements inside a variable, example: `<input type='text' ref='name/>` to access the ref, we can use `this.$refs.(ref_name)`
 - To styling component we can use scoped attribute in style tag for local styling `<style scoped>`, and not used it if you want to create global styles
@@ -76,13 +76,13 @@
 - to use router library on vue, you must use createRouter, createWebHistory
 - `<router-link>` tag is used to change the page without reload the page, and we can use attribute (to="/path") :to="{name: 'About'}" (for binding the link) so we can change to the page that already registered
 - folder structure with vue-router
-if you have page that has details, you can create individual folder for that pages
-- Router parameter, first of we create an object with path that have parameter like this "path: '/jobs/:param_name'" (the parameter must start with colon (:)), and to access that parameters we can use $route.params.param_name
+  if you have page that has details, you can create individual folder for that pages
+- Router parameter, first of we create an object with path that have parameter like this `path: '/jobs/:param_name'` (the parameter must start with colon (:)), and to access that parameters we can use $route.params.param_name
 - Create dynamic links that params work as props. To do that we can add props property in route object to true {path..., props: true} and add the props through the params in router-link to attribute `<router-link :to="{name: 'CompName', params: {id: '', name: '', ....}}" >`
 - Redirect page, we can add to router object like `{path: 'page-path-origin', redirect: 'new-redirect-page-path'}`
 - To add 404 page in the router object we add something like `{path: '/:catchAll(.*)', name: 'PageName', component: '404Page/Component'}`
 - To add back/forward/redirect page we can use the function that trigger by onClick with this.$router.go(-1) for backward, this.$router.go(1), and for redirect we can use
-this.$router.push({name: "PageName"})
+  this.$router.push({name: "PageName"})
 - To register page component with lazy loading, we can change the page object in the router config with `{path: '/path', name: 'PageName', component: () => import('../')}` it will reduce bundle size when we build for production and only imported if we open that page
 
 ## 7. Learn How to Fetch Data from JSON Server (5/5/2022)
@@ -90,3 +90,28 @@ this.$router.push({name: "PageName"})
 - yarn add json-server
 - create json file in data/db.json
 - to run the json-server, type `json-server --watch[json_file_location]`
+
+## 8. Learn How to Use Composition API (5/6/2022)
+
+- There are two ways to use API on Vue:
+  - Options API: The way just like we use the API, using data(), methods: {}, computed: {}, and Vue life-cycles
+  - Composition API: This is new feature from Vue 3 that can organize the code in such a way that groups feature logic together inside setup function, we can reused it too like hooks in React! (Easily create reusable logic/functions)
+    Composition API is not return reactivity value on the template, so we must use template refs!
+    `import {ref} from 'vue export default { ..., setup(){ const name = ref('') to access name value when using ref, we must type like this: \\ name.value '' const person = ref({name: '', age: ''}) person.value.name person.value.age ... } }`
+- We also can use {reactive} from vue
+  const name = reactive('')
+  to access name value when using reactive, we can type like this:
+  const person = reactive({name: '', age: 0})
+  person.name
+  person.age
+  notes for reactive, we can't use primite value inside reactive, like this:
+  const name = reactive('')
+- *So better using refs and alos because it is work better when we're creating external composition functions
+- Computed values in the setup functions:
+must import computed function from vue `import {computed} from 'vue'`
+The idea of computed property is not just to return a simple value, but to computed new value base on new value like filter data!
+- Using watch and watchEffect
+- Using props inside setup function, we must defined the props like usual, we used it to change the value of the props into setup() function
+- Lifecycle hooks inside setup() function:
+mounted => onMounted()
+updated => onUpdated()
