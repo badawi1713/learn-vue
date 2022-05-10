@@ -61,14 +61,27 @@
   <br />
   <hr />
   <div>
-    <h1>Props</h1>
-    <PostList :posts="posts" />
+    <h1>Props & Async Code</h1>
+    <p v-if="isLoading">Loading ...</p>
+    <p v-else-if="isError">
+      {{ isError }}
+    </p>
+    <PostList v-else :posts="posts" />
   </div>
 </template>
 
 <script>
 import PostList from "../components/PostList.vue";
-import { ref, reactive, computed, watch, watchEffect, onMounted, onUnmounted, onUpdated } from "vue";
+import {
+  ref,
+  reactive,
+  computed,
+  watch,
+  watchEffect,
+  onMounted,
+  onUnmounted,
+  // onUpdated,
+} from "vue";
 
 export default {
   components: { PostList },
@@ -131,20 +144,12 @@ export default {
       stopSearchWatch();
       stopWatchEffect();
     };
-    // using props
-    const posts = ref([
-      {
-        id: 1,
-        title: "How to cook salmon!",
-        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates tenetur soluta enim fugiat cupiditate magni, quo exercitationem iste provident, placeat voluptas, natus eveniet nulla! Alias nostrum nobis hic cumque laboriosam?",
-      },
-      {
-        id: 2,
-        title: "Where am I?",
-        body: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates tenetur soluta enim fugiat cupiditate magni, quo exercitationem iste provident, placeat voluptas, natus eveniet nulla! Alias nostrum nobis hic cumque laboriosam?",
-      },
-    ]);
-    // must return that need to access on the template
+
+    // using posts data as props
+    const posts = ref([]);
+    const isLoading = ref(true);
+    const isError = ref(null);
+
     // lifecycle hooks
     onMounted(() => {
       console.log("component mounted");
@@ -157,7 +162,32 @@ export default {
       updateTimestamp();
     });
     onUnmounted(() => console.log("component unmounted"));
-    onUpdated(() => console.log("component updated"));
+    // onUpdated(() => console.log("component updated"));
+
+    // async function in setup()
+
+    const load = async () => {
+      isError.value = null;
+      try {
+        let data = await fetch("http://localhost:3000/posts");
+        if (!data.ok) {
+          isLoading.value = false;
+          throw Error(data.statusText);
+        }
+        posts.value = await data.json();
+        isLoading.value = false;
+      } catch (error) {
+        error.value = error.message;
+        isError.value = error.value;
+        isLoading.value = false;
+      }
+    };
+
+    onMounted(() => {
+      load();
+    });
+
+    // must return that need to access on the template
     return {
       firstName,
       lastName,
@@ -177,6 +207,8 @@ export default {
       matchingFruits,
       stopSearchWatchHandler,
       posts,
+      isLoading,
+      isError,
     };
   },
   components: { PostList },

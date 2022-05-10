@@ -14,7 +14,7 @@ export default {
   name: "PostList",
   props: ['posts'],
   setup(props) {
-   
+   console.log(props.posts)
     const {posts} = props
 
     return {
