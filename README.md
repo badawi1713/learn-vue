@@ -91,7 +91,7 @@
 - create json file in data/db.json
 - to run the json-server, type `json-server --watch[json_file_location]`
 
-## 8. Learn How to Use Composition API (5/6/2022)
+## 8. Learn How to Use Composition API Basic (5/6/2022)
 
 - There are two ways to use API on Vue:
   - Options API: The way just like we use the API, using data(), methods: {}, computed: {}, and Vue life-cycles
@@ -115,3 +115,7 @@ The idea of computed property is not just to return a simple value, but to compu
 - Lifecycle hooks inside setup() function:
 mounted => onMounted()
 updated => onUpdated()
+
+## 9. Learn How to Use Aynsc Code with Composition API (5/10/2022)
+
+- Fetching data in setup function
